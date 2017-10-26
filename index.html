@@ -15,29 +15,36 @@
     </div>
 
     <script>
+        var nrOfBoxes = 8;
         var contentDiv = document.getElementById('content');
 
         var board = document.createElement('div');
         board.className = 'board';
 
-        for (var y = 0; y < 8; y++) {
-            addRowToBoard();
+        for (var y = 0; y < nrOfBoxes; y++) {
+            var row1 = addRowToBoard();
+
+            for (var x = 0; x < nrOfBoxes; x++) {
+                var boxH = document.createElement('div');
+                boxH.className = 'boxH';
+                row1.appendChild(boxH);
+
+                if ((x+y) % 2) {
+                    boxH.style.backgroundColor = 'purple'
+                } else {
+                    boxH.style.backgroundColor = 'yellow'
+                }
+            }
         }
-
-        
-
 
         contentDiv.appendChild(board);
 
         function addRowToBoard() {
             var row1 = document.createElement('div');
             row1.className = 'row1';
-            if (y % 2) {
-                row1.style.backgroundColor = 'purple'
-            } else {
-                row1.style.backgroundColor = 'yellow'
-            }
+
             board.appendChild(row1);
+            return row1;
         }
 
 
