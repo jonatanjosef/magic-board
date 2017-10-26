@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <button type="button">START</button>
+    </header>
+
+    <div id="content">
+    </div>
+
+    <script>
+        var contentDiv = document.getElementById('content');
+
+        var board = document.createElement('div');
+        board.className = 'board';
+
+        for (var y = 0; y < 8; y++) {
+            addRowToBoard();
+        }
+
+        
+
+
+        contentDiv.appendChild(board);
+
+        function addRowToBoard() {
+            var row1 = document.createElement('div');
+            row1.className = 'row1';
+            if (y % 2) {
+                row1.style.backgroundColor = 'purple'
+            } else {
+                row1.style.backgroundColor = 'yellow'
+            }
+            board.appendChild(row1);
+        }
+
+
+
+    </script>
+</body>
+
+</html>
